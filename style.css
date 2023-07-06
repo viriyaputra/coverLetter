@@ -1,0 +1,53 @@
+body{
+    text-align: justify;
+}
+
+@media print {
+    @page {
+        margin: 0;
+    }
+    body{
+        margin: 1.6cm;
+    }
+}
+
+button{
+    cursor: pointer;
+}
+
+.selected {
+    color: rgb(2, 1, 1);
+}
+
+.opt {
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #64ac75;
+    color: aliceblue;
+}
+
+li a {
+    float: left;
+    border-right: 1px solid #1b0909;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+li a:hover {
+    background-color: #111;
+}
+
+
+li:last-child {
+    border-right: none;
+}
