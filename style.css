@@ -51,3 +51,11 @@ li a:hover {
 li:last-child {
     border-right: none;
 }
+
+span.jobTypeSpan, span.companyNameSpan{
+    font-weight: bold;
+}
+
+.bold{
+    font-weight: bold;
+}

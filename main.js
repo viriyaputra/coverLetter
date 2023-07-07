@@ -6,11 +6,11 @@ const OPT = ".opt";
 
 // Store the original content of the letterContent div
 var originalContent = document.querySelectorAll(LETTERCONTENT);
-for (let i = 0; i < originalContent.length; i ++ ) {
-  originalContent[i].setAttribute('data-axis', i);
+for (let i = 0; i < originalContent.length; i++) {
+  originalContent[i].setAttribute("data-axis", i);
 }
 
-originalContent = Array.from(originalContent).map(e => e.innerHTML);
+originalContent = Array.from(originalContent).map((e) => e.innerHTML);
 
 document.querySelectorAll(OPT).forEach((opt, index) => {
   opt.onclick = () => {
@@ -29,7 +29,6 @@ document.querySelectorAll(OPT).forEach((opt, index) => {
   };
 });
 
-
 function repCompany(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -37,10 +36,10 @@ function repCompany(event) {
   if (companyName.value == "") {
     alert("Company Name must be filled out");
     return false;
-  } else
-    document.querySelector(`.${SELECTEDDIV}`).innerHTML = document
-      .querySelector(`.${SELECTEDDIV}`)
-      .innerHTML.replace(/%COMPANY%/g, companyName.value);
+  }
+  document
+    .querySelectorAll("." + SELECTEDDIV + " .companyNameSpan")
+    .forEach((e) => (e.innerHTML = companyName.value));
 }
 
 function repJob(event) {
@@ -50,10 +49,10 @@ function repJob(event) {
   if (jobType.value == "") {
     alert("Job Type must be filled out");
     return false;
-  } else
-    document.querySelector(`.${SELECTEDDIV}`).innerHTML = document
-      .querySelector(`.${SELECTEDDIV}`)
-      .innerHTML.replace(/Data Scientist/g, jobType.value);
+  }
+  document
+    .querySelectorAll("." + SELECTEDDIV + " .jobTypeSpan")
+    .forEach((e) => (e.innerHTML = jobType.value));
 }
 
 function resetContent(event) {
@@ -68,27 +67,22 @@ function resetContent(event) {
 }
 
 function savePDF() {
-  let head = document.head.cloneNode(true);
   let wantToPrint = document.querySelector(`.${SELECTEDDIV}`).cloneNode(true);
   let newIframe = document.createElement("iframe");
 
-  const style = document.createElement("style");
-  style.appendChild(document.createTextNode(""));
+  document.body.appendChild(newIframe);
 
-  newIframe.onload = () => {
-    newIframe.contentDocument.head.append(head.textContent);
-    // newIframe.contentDocument.head.append(style);
-    // style.sheet.insertRule("@Page { margin: 0; }", 0);
+  newIframe.contentDocument.addEventListener("readystatechange", (r) => {
+    if (newIframe.contentDocument.readyState === "complete") {
+      newIframe.contentDocument.head.innerHTML = document.head.innerHTML;
+      newIframe.contentDocument.body.append(wantToPrint);
+      newIframe.contentWindow.onafterprint = () => {
+        document.body.removeChild(newIframe);
+      };
 
-    newIframe.contentDocument.body.append(wantToPrint);
-    newIframe.contentDocument.body.append(style);
-    style.sheet.insertRule("body{text-align: justify;}", 0);
-
-    newIframe.contentWindow.print();
-    newIframe.contentWindow.onafterprint = () => {
-      document.body.removeChild(newIframe);
-    };
-  };
-
-  document.body.append(newIframe);
+      setTimeout(() => {
+        newIframe.contentWindow.print();
+      }, 50);
+    }
+  });
 }
