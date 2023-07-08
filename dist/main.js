@@ -79,10 +79,11 @@ function savePDF() {
       newIframe.contentWindow.onafterprint = () => {
         document.body.removeChild(newIframe);
       };
-
-      setTimeout(() => {
-        newIframe.contentWindow.print();
-      }, 50);
+      newIframe.contentWindow.print();
+      
+      // setTimeout(() => {
+        
+      // }, 50);
     }
   });
 }
