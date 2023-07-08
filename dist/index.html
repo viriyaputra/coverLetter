@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cover Letter Changer</title>
+    <title>Verren Lo - Cover Letter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div>
         <ul>
-            <li class="opt"><a href="#">Template Data Scientist</span></a></li>
-            <li class="opt"><a href="#">Template AI Consultant</a></li>
-            <li class="opt"><a href="#">Template Analyst Programmer</a></li>
-            <li class="opt"><a href="#">Template Data Analyst</a></li>
-            <li class="opt"><a href="#">Template Data Engineer</a></li>
-            <li class="opt"><a href="#">Template Machine Learning Engineer</a></li>
+            <li class="opt selected"><a href="#">Data Scientist</span></a></li>
+            <li class="opt"><a href="#">AI Consultant</a></li>
+            <li class="opt"><a href="#">Analyst Programmer</a></li>
+            <li class="opt"><a href="#">Business Analyst</a></li>
+            <li class="opt"><a href="#">Data Analyst</a></li>
+            <li class="opt"><a href="#">Data Engineer</a></li>
+            <li class="opt"><a href="#">Machine Learning Engineer</a></li>
             <li style="float:right" class="about"><a href="about.html">About</a></li>
         </ul>
     </div>
@@ -22,64 +23,137 @@
         <form id="changeform" onsubmit="return false;">
             <label style="display: block;" for="companyName">Company Name : </label>
             <input style="display: block; margin-bottom: .6rem;" type="text" id="companyName">
+            <button onclick="repCompany(event);" type="button">Submit Company</button>
             <label style="display: block;" for="jobType">Job Type : </label>
             <input style="display: block; margin-bottom: .6rem;" type="text" id="jobType">
-            <button onclick="repCompany(event);" type="submit">Submit Company</button>
-            <button onclick="repJob(event);" type="submit">Submit Job</button>
+            <button onclick="repJob(event);" type="button">Submit Job</button>
             <button onclick="resetContent(event);" type="button">Reset</button>
         </form>
     </div>
-    <div class="letterContent" hidden>
+
+    <div style="margin-top: 5px;">
+        <button onclick="savePDF();">Convert HTML to PDF</button>
+    </div>
+
+    <!-- data scientist -->
+    <div class= "letterContent selecteddiv" >
         <p>Verren Ratana Pangestu Lo <br>
         0451 866 861 <br>
         VerrenRatanaP98@gmail.com <br>
         Lidcombe, NSW, Australia</p>
         <p class="bold">Dear hiring manager,</p>
-        <p>Re: <b><span class="jobTypeSpan">Data Scientist</span> position at <span class="companyNameSpan">COMPANY</span></b></p>
-        <p>I am writing to express my interest in the <span class="jobTypeSpan">Data Scientist</span> role at <span class="companyNameSpan">COMPANY</span>. The reason why <span class="companyNameSpan">COMPANY</span><b>'s</b> <span class="jobTypeSpan">Data Scientist</span> role is so appealing to me because I believe that <span class="companyNameSpan">COMPANY</span> represents a strong commitment to innovation and excellence in the industry. My career goal is to advance my expertise in data science and make meaningful contributions in leveraging data-driven insights. </p>
+        <p>Re: <span class="jobTypeSpan">Data Scientist</span> <b>position at</b> <span class="companyNameSpan">COMPANY</span></p>
+        <p>I am writing to express my interest in the <span class="jobTypeSpan">Data Scientist</span> role at <span class="companyNameSpan">COMPANY</span>. The reason why <span class="companyNameSpan">COMPANY</span><b>’s</b> <span class="jobTypeSpan">Data Scientist</span> role is so appealing to me because I believe that <span class="companyNameSpan">COMPANY</span> represents a strong commitment to innovation and excellence in the industry. My career goal is to advance my expertise in data science and make meaningful contributions in leveraging data-driven insights. </p>
         <p>I believe that I will be an exceptional fit at <span class="companyNameSpan">COMPANY</span> as I have a strong foundation in data science methodologies, algorithms, and frameworks. My previous work experience as a Data Scientist at Stact Tech has helped me foster my understanding and skills in machine learning, natural language processing, computer vision, data mining and analysis. Leveraging my knowledge in Python and frameworks such as PyTorch, Tensorflow, Transformers and Scikit-Learn, I have implemented several machine learning and deep learning models with a primary focus on NLP applications, to extract meaningful information from diverse data sources. I have also collaborated with cross-functional teams, including data scientists, developers, and business stakeholders, to develop novel AI solutions.</p>
         <p>I come from a computing background where I pursued my undergraduate study in information technology majoring in data analytics at the University of Technology Sydney (UTS). During my time at the university, I worked on various data science projects that involved extracting and transforming data from complex and large datasets using SQL and Python libraries, such as Pandas, Numpy and Scipy. Additionally, I developed predictive models with Python, Matlab, and R, and leveraged tools, such as Tableau and Power BI, to perform data visualisation. Alongside my academic studies, I had the opportunity to gain practical experiences through internships, further honing my skills in data science and expanding my knowledge of real-world applications. By working on various projects and collaborating with multidisciplinary teams, I acquired a comprehensive set of skills and gained a profound understanding of the practical applications of data science in various domains.</p>
         <p>My leadership activities include being a treasurer at PPIA UTS and a project team member at UTS Data Science and AI Society. These roles helped developed my leadership and interpersonal qualities which I believe will be an asset for <span class="companyNameSpan">COMPANY</span> where the ability to work and communicate with multiple stakeholders are crucial.</p>
         <p>Thank you for your time and consideration. I look forward to having the opportunity to speak with you in more detail about this position and how I could use my skills and knowledge to benefit at your company.</p>
-        <br>
-        <p><b>Kind regards,</b></p>
-        <p><b>Verren Ratana Pangestu Lo</b></p>
+        <p class="bold">Kind regards,</p>
+        <p class="bold">Verren Ratana Pangestu Lo</p>
     </div>
 
+    <!-- ai consultant -->
     <div class="letterContent" hidden>
         <p>Verren Ratana Pangestu Lo<br>
         0451 866 861 <br>
         VerrenRatanaP98@gmail.com <br>
         Lidcombe, NSW, Australia</p>
         <p class="bold">Dear hiring manager,</p>
-        <p>Re: <b><span class="jobTypeSpan">Data and AI Consultant</span> position at <span class="companyNameSpan">COMPANY</span></b></p>
+        <p>Re: <span class="jobTypeSpan">Data and AI Consultant</span> <b>position at</b> <span class="companyNameSpan">COMPANY</span></p>
         <p>I am writing to express my interest in the <span class="jobTypeSpan">Data and AI Consultant</span> role at <span class="companyNameSpan">COMPANY</span>. The reason why <span class="companyNameSpan">COMPANY</span><b>’s</b> <span class="jobTypeSpan">Data and AI Consultant</span> role is so appealing to me because I believe that <span class="companyNameSpan">COMPANY</span> represents a strong commitment to innovation and excellence in the industry. My career goal is to advance my expertise in AI and make meaningful contributions in leveraging data-driven insights to businesses and society.</p>
         <p>I believe that I will be an exceptional fit at <span class="companyNameSpan">COMPANY</span> as I have a strong foundation in AI methodologies, algorithms, and frameworks. My previous work experience as a Data Scientist at Stact Tech has helped me foster my understanding and skills in machine learning, natural language processing, computer vision, and data analysis. I have conducted feasibility studies, assessed business requirements, and formulated AI strategies tailored to clients' specific needs. Leveraging my knowledge in Python and frameworks such as PyTorch, Tensorflow, Transformers and Scikit-Learn, I have implemented several machine learning and deep learning models to extract meaningful information from diverse data sources. I collaborated with cross-functional teams, including data scientists, developers, and business stakeholders, to develop novel AI solutions.</p>
         <p>I come from a computing background where I pursued my undergraduate study in Information Technology majoring in Data Analytics at the University of Technology Sydney (UTS). During my time at the university, I worked on various AI projects that involved extracting and transforming data from complex and large datasets using SQL and Python libraries. Additionally, I developed machine learning and deep learning models with Python, Matlab, and R, and leveraged tools, such as Tableau and Power BI, to perform data visualisation. Alongside my academic studies, I had the opportunity to gain practical experiences through internships, further honing my skills in AI and expanding my knowledge of real-world applications. By working on various projects and collaborating with multidisciplinary teams, I acquired a comprehensive set of skills and gained a profound understanding of the practical applications of AI in various domains. I am adept at translating business challenges into AI opportunities and creating robust strategies for successful implementation.</p>
         <p>My leadership activities include being a treasurer at PPIA UTS and a project team member at UTS Data Science and AI Society. These roles helped developed my leadership and interpersonal qualities which I believe will be an asset for <span class="companyNameSpan">COMPANY</span> where the ability to work and communicate with multiple stakeholders are crucial. </p>
         <p>Thank you for your time and consideration. I look forward to having the opportunity to speak with you in more detail about this position and how I could use my skills and knowledge to benefit your company. </p>
-        <br>
         <p class="bold">Kind regards,</p>
         <p class="bold">Verren Ratana Pangestu Lo</p>
     </div>
+
+    <!-- analyst programmer -->
     <div class="letterContent" hidden>
-        <p>Verren Ratana Pangestu Lo 3 <br>
+        <p>Verren Ratana Pangestu Lo<br>
         0451 866 861 <br>
         VerrenRatanaP98@gmail.com <br>
         Lidcombe, NSW, Australia</p>
-        <p><b>Dear hiring manager,</b></p>
-        <p>Re: <span class="jobTypeSpan">Data Scientist</span> position at <span class="companyNameSpan">COMPANY</span></p>
-        <p>I am writing to express my interest in the <span class="jobTypeSpan">Data Scientist</span> role at <span class="companyNameSpan">COMPANY</span>. The reason why <span class="companyNameSpan">COMPANY</span>’s <span class="jobTypeSpan">Data Scientist</span> role is so appealing to me because I believe that <span class="companyNameSpan">COMPANY</span> represents a strong commitment to innovation and excellence in the industry. My career goal is to advance my expertise in data science and make meaningful contributions in leveraging data-driven insights. </p>
-        <p>I believe that I will be an exceptional fit at <span class="companyNameSpan">COMPANY</span> as I have a strong foundation in data science. My previous work experience as a Graduate <span class="jobTypeSpan">Data Scientist</span> at Stact Tech has helped me foster my understanding and skills in data wrangling, pre-processing, and analysis. Leveraging my knowledge in Python and frameworks such as PyTorch, Tensorflow, Transformers and Scikit-Learn, I have implemented several machine learning and deep learning models with a primary focus on NLP applications, to extract meaningful information from diverse data sources.</p>
-        <p>I come from a computing background where I pursued my undergraduate study in information technology majoring in data analytics at the University of Technology Sydney (UTS). During my time at the university, I worked on various data science projects that involved extracting and transforming data from complex and large datasets using SQL and Python library. Additionally, I developed predictive models with Python, Matlab, and R, and leveraged tools, such as Tableau and Power BI, to perform data visualisation. Alongside my academic studies, I had the opportunity to gain practical experiences through internships, further honing my skills in data science and expanding my knowledge of real-world applications. By working on various projects and collaborating with multidisciplinary teams, I acquired a comprehensive set of skills and gained a profound understanding of the practical applications of data science in various domains.</p>
-        <p>My leadership activities include being a treasurer at PPIA UTS and a project team member at UTS Data Science and AI Society. These roles helped developed my leadership and interpersonal qualities which I believe will be an asset for QBE where the ability to work and communicate with multiple stakeholders are crucial. </p>
+        <p class="bold">Dear hiring manager,</p>
+        <p>Re: <span class="jobTypeSpan">Analyst Programmer</span> <b>position at</b> <span class="companyNameSpan">COMPANY</span></p>
+        <p>I am writing to express my interest in the <span class="jobTypeSpan">Analyst Programmer</span> role at <span class="companyNameSpan">COMPANY</span>. The reason why <span class="companyNameSpan">COMPANY</span><b>’s</b> <span class="jobTypeSpan">Analyst Programmer</span> role is so appealing to me because I believe that <span class="companyNameSpan">COMPANY</span> represents a strong commitment to innovation and excellence in the industry. My career goal is to make meaningful contributions in leveraging data-driven insights.</p>
+        <p>I believe that I will be an exceptional fit at <span class="companyNameSpan">COMPANY</span> as I have a strong foundation in analytics programming. My previous work experience as a Data Scientist at Stact Tech has helped me foster my understanding and skills in business and data analytics. Leveraging my knowledge in Python, I have implemented several AI models to extract meaningful information from diverse data sources. I have also collaborated with cross-functional teams, including data scientists, developers, and business stakeholders, to develop novel AI solutions and provide technical and programming support.</p>
+        <p>I come from a computing background where I pursued my undergraduate study in information technology majoring in data analytics at the University of Technology Sydney (UTS). During my time at the university, I worked on various data science projects that involved extracting and transforming data from complex and large datasets using SQL and Python libraries. Additionally, I developed predictive models with Python, Matlab, and R, and leveraged tools, such as Tableau and Power BI, to perform data visualisation. Alongside my academic studies, I had the opportunity to gain practical experiences through internships, further honing my analytical skills and expanding my knowledge of real-world applications. By working on various projects and collaborating with multidisciplinary teams, I acquired a comprehensive set of skills and gained a profound understanding of the practical applications of analytics in various domains.</p>
+        <p>My leadership activities include being a treasurer at PPIA UTS and a project team member at UTS Data Science and AI Society. These roles helped developed my leadership and interpersonal qualities which I believe will be an asset for <span class="companyNameSpan">COMPANY</span> where the ability to work and communicate with multiple stakeholders are crucial.</p>
+        <p>Thank you for your time and consideration. I look forward to having the opportunity to speak with you in more detail about this position and how I could use my skills and knowledge to benefit at your company.</p>
+        <p class="bold">Kind regards,</p>
+        <p class="bold">Verren Ratana Pangestu Lo</p>
+    </div>
+
+    <!-- business analyst -->
+    <div class="letterContent" hidden>
+        <p>Verren Ratana Pangestu Lo<br>
+        0451 866 861 <br>
+        VerrenRatanaP98@gmail.com <br>
+        Lidcombe, NSW, Australia</p>
+        <p class="bold">Dear hiring manager,</p>
+        <p>Re: <span class="jobTypeSpan">Junior Business Analyst</span> <b>position at</b> <span class="companyNameSpan">COMPANY</span></p>
+        <p>I am writing to express my interest in the <span class="jobTypeSpan">Junior Business Analyst</span> role at <span class="companyNameSpan">COMPANY</span>. The reason why <span class="companyNameSpan">COMPANY</span><b>’s</b> <span class="jobTypeSpan">Junior Business Analyst</span> role is so appealing to me because I believe that <span class="companyNameSpan">COMPANY</span> represents a strong commitment to innovation and excellence in the industry. My career goal is to advance my expertise in business and data analytics and make meaningful contributions in streamlining processes, optimising workflows, and leveraging data-driven insights.</p>
+        <p>I believe that I will be an exceptional fit at <span class="companyNameSpan">COMPANY</span> as I have a strong foundation in business and data analytics. My previous work experience as a Data Scientist at Stact Tech has helped me foster my understanding and skills in data wrangling, pre-processing, and analysis. I was also able to foster close collaboration with clients, effectively identifying their business and system requirements within the contract management area. By conducting thorough research and analysis and engaging in active communication, I ensured a comprehensive understanding of their needs, enabling me to propose tailored solutions.</p>
+        <p>I come from a computing background where I pursued my undergraduate study in information technology majoring in data analytics at the University of Technology Sydney (UTS). During my time at the university, I worked on various data analytics projects that involved extracting and transforming data from complex and large datasets using SQL and Python library, such as Pandas. Additionally, I developed predictive models with Python, Matlab, and R, and leveraged tools, such as Tableau and Power BI, to perform data visualisation. Alongside my academic studies, I had the opportunity to gain practical experiences through internships, further honing my skills in data analytics and expanding my knowledge of real-world applications. By working on various projects and collaborating with multidisciplinary teams, I acquired a comprehensive set of skills and gained a profound understanding of the practical applications of business and data analytics in various domains.</p>
+        <p>My leadership activities include being a treasurer at PPIA UTS and a project team member at UTS Data Science and AI Society. These roles helped developed my leadership and interpersonal qualities which I believe will be an asset for <span class="companyNameSpan">COMPANY</span> where the ability to work and communicate with multiple stakeholders are crucial.</p>
         <p>Thank you for your time and consideration. I look forward to having the opportunity to speak with you in more detail about this position and how I could use my skills and knowledge to benefit your company.</p>
-        <p><b>Kind regards,</b></p>
-        <p><b>Verren Ratana Pangestu Lo</b></p>
+        <p class="bold">Kind regards,</p>
+        <p class="bold">Verren Ratana Pangestu Lo</p>
     </div>
-    <div style="margin-top: 5px;">
-        <button onclick="savePDF();">Convert HTML to PDF</button>
+
+    <!-- data analyst -->
+    <div class="letterContent" hidden>
+        <p>Verren Ratana Pangestu Lo<br>
+        0451 866 861 <br>
+        VerrenRatanaP98@gmail.com <br>
+        Lidcombe, NSW, Australia</p>
+        <p class="bold">Dear hiring manager,</p>
+        <p>Re: <span class="jobTypeSpan">Data Analyst</span> <b>position at</b> <span class="companyNameSpan">COMPANY</span></p>
+        <p>I am writing to express my interest in the <span class="jobTypeSpan">Data Analyst</span> role at <span class="companyNameSpan">COMPANY</span>. The reason why <span class="companyNameSpan">COMPANY</span><b>’s</b> <span class="jobTypeSpan">Data Analyst</span> role is so appealing to me because I believe that <span class="companyNameSpan">COMPANY</span> represents a strong commitment to innovation and excellence in the industry. My career goal is to advance my expertise in data analytics and make meaningful contributions in leveraging data-driven insights.</p>
+        <p>I believe that I will be an exceptional fit at <span class="companyNameSpan">COMPANY</span> as I have a strong foundation in data analytics. My previous work experience as a Data Scientist at Stact Tech has helped me foster my understanding and skills in data wrangling, pre-processing, and analysis. Leveraging my knowledge in Python, I have implemented several machine learning and deep learning models with a primary focus on NLP applications, to extract meaningful information from diverse data sources.</p>
+        <p>I come from a computing background where I pursued my undergraduate study in information technology majoring in data analytics at the University of Technology Sydney (UTS). During my time at the university, I worked on various data analytics projects that involved extracting and transforming data from complex and large datasets using SQL and Python libraries. Additionally, I developed predictive models with Python, Matlab, and R, and leveraged tools, such as Tableau and Power BI, to perform data visualisation. Alongside my academic studies, I had the opportunity to gain practical experiences through internships, further honing my skills in data analytics and expanding my knowledge of real-world applications. By working on various projects and collaborating with multidisciplinary teams, I acquired a comprehensive set of skills and gained a profound understanding of the practical applications of data analytics in various domains.</p>
+        <p>My leadership activities include being a treasurer at PPIA UTS and a project team member at UTS Data Science and AI Society. These roles helped developed my leadership and interpersonal qualities which I believe will be an asset for <span class="companyNameSpan">COMPANY</span> where the ability to work and communicate with multiple stakeholders are crucial.</p>
+        <p>Thank you for your time and consideration. I look forward to having the opportunity to speak with you in more detail about this position and how I could use my skills and knowledge to benefit your company.</p>
+        <p class="bold">Kind regards,</p>
+        <p class="bold">Verren Ratana Pangestu Lo</p>
     </div>
+
+    <!-- data engineer -->
+    <div class="letterContent" hidden>
+        <p>Verren Ratana Pangestu Lo<br>
+        0451 866 861 <br>
+        VerrenRatanaP98@gmail.com <br>
+        Lidcombe, NSW, Australia</p>
+        <p class="bold">Dear hiring manager,</p>
+        <p>Re: <span class="jobTypeSpan">Junior Data Engineer</span> <b>position at</b> <span class="companyNameSpan">COMPANY</span></p>
+        <p>I am writing to express my interest in the <span class="jobTypeSpan">Junior Data Engineer</span> role at <span class="companyNameSpan">COMPANY</span>. The reason why <span class="companyNameSpan">COMPANY</span><b>’s</b> <span class="jobTypeSpan">Junior Data Engineer</span> role is so appealing to me because I believe that <span class="companyNameSpan">COMPANY</span> represents a strong commitment to innovation and excellence in the industry. My career goal is to advance my expertise in data engineering and make meaningful contributions in leveraging data-driven insights.</p>
+        <p>I believe that I will be an exceptional fit at <span class="companyNameSpan">COMPANY</span> as I have a strong foundation in data engineering. My previous work experience as a Data Scientist at Stact Tech has helped me foster my understanding and skills in data wrangling, pre-processing, and analysis, as well as designing and implementing robust data solutions. Leveraging my knowledge in Python and frameworks such as PyTorch, Tensorflow, Transformers and Scikit-Learn, I have implemented several machine learning and deep learning models with a primary focus on NLP applications, to extract meaningful information from diverse data sources. Additionally, I have utilised cloud platforms such as AWS to deploy and scale these models, further enhancing their capabilities and performance.</p>
+        <p>I come from a computing background where I pursued my undergraduate study in information technology majoring in data analytics at the University of Technology Sydney (UTS). During my time at the university, I worked on various data analytics and data science projects that involved extracting, transforming, and loading (ETL) data from complex and large datasets using SQL and Python libraries, such as Pandas and developed AI models with Python, Matlab, and R. Alongside my academic studies, I had the opportunity to gain practical experiences through internships, further honing my skills in data engineering and expanding my knowledge of real-world applications. By working on various projects and collaborating with multidisciplinary teams, I acquired a comprehensive set of skills and gained a profound understanding of the practical applications of data engineering in various domains.</p>
+        <p>My leadership activities include being a treasurer at PPIA UTS and a project team member at UTS Data Science and AI Society. These roles helped developed my leadership and interpersonal qualities which I believe will be an asset for <span class="companyNameSpan">COMPANY</span> where the ability to work and communicate with multiple stakeholders are crucial.</p>
+        <p>Thank you for your time and consideration. I look forward to having the opportunity to speak with you in more detail about this position and how I could use my skills and knowledge to benefit your company.</p>
+        <p class="bold">Kind regards,</p>
+        <p class="bold">Verren Ratana Pangestu Lo</p>
+    </div>
+
+    <!-- machine learning engineer -->
+    <div class="letterContent" hidden>
+        <p>Verren Ratana Pangestu Lo<br>
+        0451 866 861 <br>
+        VerrenRatanaP98@gmail.com <br>
+        Lidcombe, NSW, Australia</p>
+        <p class="bold">Dear hiring manager,</p>
+        <p>Re: <span class="jobTypeSpan">Machine Learning Engineer</span> <b>position at</b> <span class="companyNameSpan">COMPANY</span></p>
+        <p>I am writing to express my interest in the <span class="jobTypeSpan">Machine Learning Engineer</span> role at <span class="companyNameSpan">COMPANY</span>. The reason why <span class="companyNameSpan">COMPANY</span><b>’s</b> <span class="jobTypeSpan">Machine Learning Engineer</span> role is so appealing to me because I believe that <span class="companyNameSpan">COMPANY</span> represents a strong commitment to innovation and excellence in the industry. My career goal is to advance my expertise in machine learning and make meaningful contributions in leveraging data-driven insights.</p>
+        <p>I believe that I will be an exceptional fit at <span class="companyNameSpan">COMPANY</span> as I have a strong foundation in machine learning. My previous work experience as a Data Scientist at Stact Tech has helped me foster my understanding and skills in data wrangling, pre-processing, and analysis. Leveraging my knowledge in Python and frameworks such as PyTorch, Tensorflow, Transformers and Scikit-Learn, I have implemented several machine learning and deep learning models with a primary focus on NLP applications, to extract meaningful information from diverse data sources.</p>
+        <p>I come from a computing background where I pursued my undergraduate study in information technology majoring in data analytics at the University of Technology Sydney (UTS). During my time at the university, I worked on various data science and data analytics projects that involved extracting and transforming data from complex and large datasets using SQL and Python library, such as Pandas. Additionally, I developed machine learning and deep learning models with Python, Matlab, and R, and leveraged tools, such as Tableau and Power BI, to perform data visualisation. Alongside my academic studies, I had the opportunity to gain practical experiences through internships, further honing my skills in machine learning and expanding my knowledge of real-world applications. By working on various projects and collaborating with multidisciplinary teams, I acquired a comprehensive set of skills and gained a profound understanding of the practical applications of machine learning in various domains.</p>
+        <p>My leadership activities include being a treasurer at PPIA UTS and a project team member at UTS Data Science and AI Society. These roles helped developed my leadership and interpersonal qualities which I believe will be an asset for <span class="companyNameSpan">COMPANY</span> where the ability to work and communicate with multiple stakeholders are crucial.</p>
+        <p>Thank you for your time and consideration. I look forward to having the opportunity to speak with you in more detail about this position and how I could use my skills and knowledge to benefit your company.</p>
+        <p class="bold">Kind regards,</p>
+        <p class="bold">Verren Ratana Pangestu Lo</p>
+    </div>
+
     <script src="main.js"></script>
 
 </body>

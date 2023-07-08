@@ -70,20 +70,23 @@ function savePDF() {
   let wantToPrint = document.querySelector(`.${SELECTEDDIV}`).cloneNode(true);
   let newIframe = document.createElement("iframe");
 
-  document.body.appendChild(newIframe);
-
-  newIframe.contentDocument.addEventListener("readystatechange", (r) => {
-    if (newIframe.contentDocument.readyState === "complete") {
-      newIframe.contentDocument.head.innerHTML = document.head.innerHTML;
+  newIframe.addEventListener("load", () => {
+      
       newIframe.contentDocument.body.append(wantToPrint);
       newIframe.contentWindow.onafterprint = () => {
         document.body.removeChild(newIframe);
       };
-      newIframe.contentWindow.print();
-      
-      // setTimeout(() => {
-        
-      // }, 50);
-    }
+
+      const css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "./style.css";
+      newIframe.contentDocument.head.appendChild(css);
+      css.onload = () => {
+        newIframe.contentWindow.print();
+      }
+    
   });
+
+  document.body.appendChild(newIframe);
+
 }

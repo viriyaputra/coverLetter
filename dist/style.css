@@ -1,14 +1,6 @@
 body{
     text-align: justify;
-}
-
-@media print {
-    @page {
-        margin: 0;
-    }
-    body{
-        margin: 1.6cm;
-    }
+    margin: 0;
 }
 
 button{
@@ -52,10 +44,15 @@ li:last-child {
     border-right: none;
 }
 
-span.jobTypeSpan, span.companyNameSpan{
-    font-weight: bold;
+.letterContent{
+    margin: 3rem;
+    font-size: 0.9rem;
 }
 
 .bold{
+    font-weight: bold;
+}
+
+.companyNameSpan, .jobTypeSpan{
     font-weight: bold;
 }
