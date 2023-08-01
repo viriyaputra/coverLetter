@@ -40,6 +40,7 @@ function repCompany(event) {
   document
     .querySelectorAll("." + SELECTEDDIV + " .companyNameSpan")
     .forEach((e) => (e.innerHTML = companyName.value));
+    
   if (companyName.value.charAt(companyName.value.length - 1) === "s"){
     document.querySelectorAll("." + SELECTEDDIV + " .apostrophe").forEach((e) => (e.innerHTML = companyName.value + "’"));
   }
